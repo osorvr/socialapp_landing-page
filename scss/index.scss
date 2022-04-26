@@ -1,0 +1,1127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+// COLOR VARIABLES
+$whiteColor: white;
+$blackColor: #414c5a;
+$lightBlack: #708198;
+$purpleColor: #8089ff;
+$orangeColor: #fe7d73;
+
+// FONTS VARIABLES
+$PassionOnePrimary: "Passion One", cursive;
+$RobotoSecondary: "Lato", sans-serif;
+$LatoThird: "Roboto", sans-serif;
+
+// Hamburger Menu And Animation
+.navTrigger {
+    display: none;
+}
+
+.navTrigger {
+    cursor: pointer;
+    width: 25px;
+    height: 10px;
+    margin: auto;
+    position: absolute;
+    right: 30px;
+    top: 0;
+    bottom: 0;
+}
+
+.navTrigger i {
+    background-color: rgb(0, 0, 0);
+    border-radius: 50px;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+}
+
+.navTrigger i:nth-child(1) {
+    -webkit-animation: outT 0.8s backwards;
+    animation: outT 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(2) {
+    margin: 2.2px 0;
+    -webkit-animation: outM 0.8s backwards;
+    animation: outM 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(3) {
+    -webkit-animation: outBtm 0.8s backwards;
+    animation: outBtm 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger.active i:nth-child(1) {
+    -webkit-animation: inT 0.8s forwards;
+    animation: inT 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(2) {
+    -webkit-animation: inM 0.8s forwards;
+    animation: inM 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(3) {
+    -webkit-animation: inBtm 0.8s forwards;
+    animation: inBtm 0.8s forwards;
+}
+
+@-webkit-keyframes inM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes inM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes outM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes outM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes inT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(6px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(6px) rotate(135deg);
+    }
+}
+
+@keyframes inT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(6px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(6px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(6px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(6px) rotate(135deg);
+    }
+}
+
+@keyframes outT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(6px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(6px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes inBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-6px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-6px) rotate(135deg);
+    }
+}
+
+@keyframes inBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-6px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-6px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-6px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-6px) rotate(135deg);
+    }
+}
+
+@keyframes outBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-6px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-6px) rotate(135deg);
+    }
+}
+
+////////////////////////////////////////////////////////////////// Nav Bar
+.nav {
+    width: 100%;
+    position: fixed;
+    padding-top: 15px;
+    transition: all 0.8s ease;
+    z-index: 50;
+
+    .container {
+        padding: 6px 0 6px 0;
+        width: 95%;
+        max-width: 1140px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+
+        .logo {
+            flex-grow: 2;
+
+            a {
+                text-decoration: none;
+                color: white;
+
+                img {
+                    width: 175px;
+                }
+            }
+
+            .affixLogo {
+                display: none;
+            }
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            flex-flow: row wrap;
+            gap: 2rem;
+            list-style-type: none;
+
+            li {
+                color: $whiteColor;
+
+                a {
+                    text-decoration: none;
+                    color: $whiteColor;
+                    font-family: $RobotoSecondary;
+                    font-size: 1rem;
+                }
+
+                a:hover {
+                    color: $orangeColor;
+                }
+
+                .downloadBtn {
+                    display: block;
+                    padding: 0.5rem 1rem;
+                    border-radius: 2rem;
+                    background-color: $whiteColor;
+                    color: $orangeColor;
+                }
+            }
+        }
+    }
+}
+
+// Extra CSS FRO NAV
+nav .container ul li.active {
+    border-radius: 30px;
+    transition: 0.3s;
+    color: $orangeColor;
+}
+nav .container ul li.active a {
+    color: $orangeColor;
+}
+
+// Media Query Nav 768px
+@media screen and (max-width: 768px) {
+    .navTrigger {
+        display: inline;
+    }
+    .nav div.main_list {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+    }
+    .nav div.show_list {
+        height: auto;
+        display: none;
+    }
+    .nav div.main_list ul {
+        flex-direction: column;
+        width: 100%;
+        height: 30vh;
+        padding-top: 25px;
+        gap: 1.5rem;
+        margin: 0%;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: $whiteColor;
+        /*same background color of navbar*/
+        background-position: center top;
+    }
+    .nav div.main_list ul li {
+        width: 100%;
+    }
+    .nav div.main_list ul li a {
+        width: 100%;
+        padding-left: 20px;
+        color: $blackColor;
+    }
+    .nav div.media_button {
+        display: block;
+    }
+
+    // Before Affix
+    .bgColor {
+        background-color: $whiteColor;
+
+        .container > .logo > a > img {
+            display: none;
+        }
+
+        .container > .logo > a > .affixLogo {
+            display: flex;
+        }
+
+        .main_list > ul > li > .downloadBtn {
+            display: block;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            width: 118.58px;
+            background-color: $orangeColor;
+            color: $whiteColor;
+        }
+
+        .main_list > ul > li > .downloadBtn:hover {
+            display: block;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            background-color: $orangeColor;
+            color: $whiteColor;
+        }
+    }
+
+    // Extra CSS FRO NAV
+    nav .container ul li.active {
+        border-radius: 30px;
+        transition: 0.3s;
+        color: $orangeColor;
+    }
+    nav .container ul li.active a {
+        color: $orangeColor;
+    }
+}
+
+// onScoll Affix Nav Bar
+.affix {
+    padding-top: 0%;
+    background-color: $whiteColor;
+    color: $blackColor;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+
+    .container > .logo > a > img {
+        display: none;
+    }
+
+    .container > .logo > a > .affixLogo {
+        display: block;
+    }
+
+    .main_list > ul > li > a {
+        color: $blackColor;
+    }
+
+    .main_list > ul > li.activeDetails > a {
+        color: $orangeColor;
+    }
+
+    .main_list > ul > li.activeShowcase > a {
+        color: $orangeColor;
+    }
+
+    .main_list > ul > li > .downloadBtn {
+        display: block;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        background: linear-gradient(45deg, #fe60a1 0%, #ff8765 100%);
+        color: $whiteColor;
+    }
+
+    .main_list > ul > li > .downloadBtn:hover {
+        display: block;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        color: $whiteColor;
+    }
+}
+
+////////////////////////////////////////////////////////////////// Home
+.home {
+    background: linear-gradient(45deg, #8089ff 0%, #54ceff 100%);
+    min-height: 100vh;
+    position: relative;
+
+    svg {
+        position: absolute;
+        bottom: 0%;
+        width: 100%;
+    }
+
+    .colGrid {
+        position: relative;
+        padding-top: 100px;
+        margin: auto;
+        width: 95%;
+        min-height: 100vh;
+        max-width: 1140px;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 5;
+
+        .colLeft {
+            flex-basis: 48%;
+            flex-grow: 2;
+        }
+
+        h1 {
+            color: $whiteColor;
+            font-size: 4rem;
+            font-family: $PassionOnePrimary;
+            font-weight: 400;
+        }
+
+        p {
+            color: $whiteColor;
+            font-family: $RobotoSecondary;
+            font-size: 1.4rem;
+        }
+
+        .colRight {
+            margin: auto;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .hero-aTags {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            gap: 2.5rem;
+            padding: 1rem 0;
+            cursor: pointer;
+
+            a {
+                display: block;
+                color: $whiteColor;
+                font-family: $RobotoSecondary;
+                font-weight: 600;
+                text-decoration: none;
+                background: linear-gradient(45deg, #8089ff 0%, #54ceff 100%);
+                padding: 0.8rem 1.5rem;
+                border-radius: 2rem;
+                text-align: center;
+                cursor: pointer;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+
+            .aTags02 {
+                cursor: pointer;
+                background: linear-gradient(45deg, #19d9b4 0%, #92d275 100%);
+            }
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////// Features
+.detailsSec {
+    min-height: 25vh;
+    padding-top: 100px;
+    background-color: rgb(255, 255, 255);
+
+    h2 {
+        color: $purpleColor;
+        font-family: $RobotoSecondary;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    p {
+        color: $lightBlack;
+        font-family: $LatoThird;
+        text-align: center;
+        font-size: 1.4rem;
+        width: 95%;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 15px 0 6px 0;
+    }
+
+    .colDetails {
+        padding-top: 50px;
+        min-height: 75vh;
+        width: 95%;
+        max-width: 1140px;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-around;
+        gap: 3rem;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        ul {
+            flex-basis: 40%;
+            list-style-type: none;
+            padding-bottom: 50px;
+
+            li {
+                padding: 10px 0;
+                position: relative;
+
+                .material-icons {
+                    color: $purpleColor;
+                    position: absolute;
+                    width: 100%;
+                    height: auto;
+                    font-size: 40px;
+                    left: -75px;
+                    top: 10px;
+                }
+
+                h3 {
+                    font-family: $RobotoSecondary;
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    color: $blackColor;
+                }
+
+                p {
+                    font-family: $LatoThird;
+                    font-size: 1.2rem;
+                    margin: 0%;
+                    text-align: start;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1040px) {
+
+    .detailsSec {
+
+        .colDetails {
+
+            ul {
+                flex-grow: 2;
+                text-align: center;
+                width: 95%;
+                max-width: 500px;
+                margin: 0 auto;
+    
+                li {
+
+                    .material-icons {
+                        color: $purpleColor;
+                        position: absolute;
+                        width: 100%;
+                        height: auto;
+                        font-size: 40px;
+                        left: -105px;
+                        top: 5px;
+                    }
+    
+                    p {
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+////////////////////////////////////////////////////////////////// Features
+.featuresSec {
+    min-height: 25vh;
+    padding-top: 100px;
+    min-height: 100vh;
+    background-color: #f6f7f8;
+
+    h2 {
+        color: $purpleColor;
+        font-family: $RobotoSecondary;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    p {
+        color: $lightBlack;
+        font-family: $LatoThird;
+        text-align: center;
+        font-size: 1.4rem;
+        width: 95%;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 15px 0 6px 0;
+    }
+
+    .colFeatures {
+        min-height: 75vh;
+        padding: 50px 0;
+        width: 95%;
+        max-width: 1140px;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        gap: 2rem;
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+
+            li {
+                text-align: center;
+                width: 225px;
+                margin: 5px 0;
+
+                .material-icons {
+                    color: $orangeColor;
+                    font-size: 40px;
+                }
+
+                h3 {
+                    text-align: center;
+                    font-family: $RobotoSecondary;
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    color: $blackColor;
+                }
+
+                p {
+                    text-align: center;
+                    font-family: $LatoThird;
+                    font-size: 1.1rem;
+                    margin: 0%;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 475px) {
+    .colFeatures {
+
+        ul {
+            flex-grow: 1;
+
+            li {
+                flex-grow: 1;
+            }
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////// Pricing
+.pricingSec {
+    min-height: 25vh;
+    padding-top: 100px;
+
+    h2 {
+        color: $purpleColor;
+        font-family: $RobotoSecondary;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    p {
+        color: $lightBlack;
+        font-family: $LatoThird;
+        text-align: center;
+        font-size: 1.4rem;
+        width: 95%;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 15px 0 6px 0;
+    }
+
+    .colPricing {
+        min-height: 60vh;
+        width: 95%;
+        max-width: 1140px;
+        margin: 0 auto;
+
+        .splide {
+            height: 625px;
+            padding-top: 20px;
+            background-color: rgba(0, 0, 0, 0);
+            cursor: pointer;
+
+            .splide__track {
+                height: 625px;
+                background-color: rgba(0, 0, 0, 0);
+            }
+
+            .splide__slide {
+                background-color: rgba(255, 0, 0, 0);
+                text-align: center;
+                margin-right: -15px;
+                padding-top: 10px;
+
+                .priceHeadCard2 {
+                    background-color: $whiteColor;
+                    border-radius: 0.8rem 0.8rem 0.5rem 0.5rem;
+                    padding: 50px 0;
+                    position: relative;
+                    box-shadow: 0 -3px 10px 0px rgba(0, 0, 0, 0.2);
+
+                    img {
+                        position: absolute;
+                        bottom: -4px;
+                        left: 0;
+                    }
+
+                    h3 {
+                        font-family: $PassionOnePrimary;
+                        font-size: 2rem;
+                        color: $blackColor;
+                        font-weight: 500;
+                    }
+
+                    p {
+                        color: $purpleColor;
+                        font-size: 4rem;
+                        font-family: $RobotoSecondary;
+                        font-weight: 600;
+
+                        span {
+                            font-size: 1.5rem;
+                            font-family: $RobotoSecondary;
+                            font-weight: 400;
+                            color: $purpleColor;
+                        }
+                    }
+
+                    .supportP {
+                        color: $blackColor;
+                        font-size: 1.2rem;
+                        font-family: $RobotoSecondary;
+                        font-weight: 600;
+                    }
+                }
+
+                ul.priceFooterCard2 {
+                    border-radius: 0 0 0.8rem 0.8rem;
+                    padding: 50px 0;
+                    background-color: #f6f7f8;
+                    list-style-type: none;
+                    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
+
+                    li {
+                        font-family: $LatoThird;
+                        color: $lightBlack;
+                        font-size: 1.2rem;
+                        padding: 5px 0;
+
+                        a {
+                            display: block;
+                            background: linear-gradient(45deg, #19d9b4 0%, #92d275 100%);
+                            color: $whiteColor;
+                            font-size: 1rem;
+                            width: 145px;
+                            padding: 10px 0;
+                            margin: auto;
+                            border-radius: 2rem;
+                            font-family: $RobotoSecondary;
+                            text-decoration: none;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        }
+                    }
+                }
+
+                .priceHeadCard1 {
+                    padding: 50px 0;
+                    position: relative;
+                    background: linear-gradient(45deg, #8089ff 0%, #54ceff 100%);
+                    border-radius: 0.8rem 0.8rem 0 0;
+                    box-shadow: 0 -3px 10px 0px rgba(0, 0, 0, 0.2);
+
+                    img {
+                        position: absolute;
+                        bottom: -4px;
+                        left: -1px;
+                    }
+
+                    h3 {
+                        font-family: $PassionOnePrimary;
+                        font-size: 2rem;
+                        color: $blackColor;
+                        font-weight: 500;
+                    }
+
+                    p {
+                        color: $whiteColor;
+                        font-size: 4rem;
+                        font-family: $RobotoSecondary;
+                        font-weight: 600;
+
+                        span {
+                            font-size: 1.5rem;
+                            font-family: $RobotoSecondary;
+                            font-weight: 400;
+                            color: $whiteColor;
+                        }
+                    }
+
+                    .supportP {
+                        color: $whiteColor;
+                        font-size: 1.2rem;
+                        font-family: $RobotoSecondary;
+                        font-weight: 600;
+                    }
+                }
+
+                ul.priceFooterCard1 {
+                    padding: 50px 0;
+                    background-color: #f6f7f8;
+                    list-style-type: none;
+                    border-radius: 0 0 0.8rem 0.8rem;
+                    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
+
+                    li {
+                        font-family: $LatoThird;
+                        color: $lightBlack;
+                        font-size: 1.2rem;
+                        padding: 5px 0;
+
+                        .aTagCard1 {
+                            display: block;
+                            background: linear-gradient(45deg, #8089ff 0%, #54ceff 100%);
+                            color: $whiteColor;
+                            font-size: 1rem;
+                            width: 145px;
+                            padding: 10px 0;
+                            margin: auto;
+                            border-radius: 2rem;
+                            font-family: $RobotoSecondary;
+                            text-decoration: none;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .priceFooter {
+        min-height: 15vh;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+
+        p {
+            color: $lightBlack;
+            font-family: $LatoThird;
+            text-align: center;
+            font-size: 1.2rem;
+            width: 95%;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 15px 0 6px 0;
+        }
+
+        h2 {
+            color: $purpleColor;
+            font-family: $LatoThird;
+            font-weight: 600;
+            text-align: center;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////// Download
+
+.downloadSec {
+    min-height: 25vh;
+    padding-top: 100px;
+    background: linear-gradient(45deg, #fe60a1 0%, #ff8765 100%);
+    position: relative;
+
+    h2 {
+        color: $whiteColor;
+        font-family: $RobotoSecondary;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    p {
+        color: $whiteColor;
+        font-family: $LatoThird;
+        text-align: center;
+        font-size: 1.4rem;
+        width: 95%;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 15px 0 6px 0;
+    }
+
+    .colDownload {
+        padding-bottom: 32px;
+        min-height: 65vh;
+        width: 95%;
+        max-width: 1140px;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+
+        #primary-slider {
+            background-image: url(/images/device.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-size: auto;
+            position: relative;
+            cursor: pointer;
+            height: 580px;
+
+            .splide__slide {
+                img {
+                    position: absolute;
+                    top: 65px;
+                    left: 35px;
+                }
+            }
+        }
+
+        .secondaryContainer {
+            padding-bottom: 50px;
+
+            #secondary-slider {
+                cursor: pointer;
+
+                .splide__track {
+                    padding: 25px;
+                }
+
+                .splide__slide {
+                    font-family: $PassionOnePrimary;
+                    font-weight: 400;
+                    font-size: 1.2rem;
+                    color: $whiteColor;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.3rem;
+                    padding: 10px;
+                    min-width: fit-content;
+                }
+            }
+
+            .downloadBox {
+                padding-top: 50px;
+                text-align: center;
+
+                .dBoximg {
+                    width: 50%;
+                    border-radius: 50%;
+                    background-color: $whiteColor;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                }
+
+                .downloadBtn {
+                    display: flex;
+                    gap: 1rem;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 25px;
+
+                    a {
+                        display: block;
+                        border-radius: 2rem;
+                        background: linear-gradient(45deg, #19d9b4 0%, #92d275 100%);
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        width: 160px;
+                        height: auto;
+
+                        img {
+                            width: 100%;
+                            max-width: 125px;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Media Query For Download Section **Secondary Container
+@media all and (max-width: 969px) {
+    .secondaryContainer {
+        width: 100%;
+    }
+}
+
+// Part of Secondary ul Slide
+.splide--nav > .splide__track > .splide__list > .splide__slide.is-active {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(255, 255, 255, 0.116);
+    border-style: none;
+    border-radius: 0.5rem;
+}
+
+// Footer For The Download Section
+.downloadFooter {
+    min-height: 10vh;
+    background-color: $lightBlack;
+
+    .colDownloadFooter {
+        min-height: 10vh;
+        width: 95%;
+        max-width: 1140px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        justify-content: space-between;
+
+        p {
+            color: $whiteColor;
+            font-family: $LatoThird;
+            font-weight: 500;
+            flex-grow: 1;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+
+            li {
+                width: 35px;
+                text-align: center;
+                height: 35px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 100%;
+                    max-width: 15px;
+                    height: auto;
+                }
+            }
+
+            .fb-li {
+                cursor: pointer;
+                background: linear-gradient(45deg, #8089ff 0%, #54ceff 100%);
+            }
+
+            .ig-li {
+                cursor: pointer;
+                background: linear-gradient(45deg, #fe60a1 0%, #ff8765 100%);
+            }
+
+            .tw-li {
+                cursor: pointer;
+                background: linear-gradient(45deg, #19d9b4 0%, #92d275 100%);
+            }
+
+            .pt-li {
+                cursor: pointer;
+                background: linear-gradient(45deg, #fd81b5 0%, #c961f7 50%, #8089ff 100%);
+            }
+        }
+    }
+}
+
+// Media Query For Footer
+@media all and (max-width: 480px) {
+
+    .downloadFooter {
+    
+        .colDownloadFooter {
+    
+            p {
+                text-align: center;
+            }
+
+            ul{
+                margin: auto;
+            }
+        }
+    }
+}
